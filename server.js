@@ -1,10 +1,9 @@
 const express = require("express");
 const connectDB = require("./conifg/db");
-const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
 const path= require('path');
-
+const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -20,6 +19,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
   );
+  res.setHeader("Access-Control-Allow-Credentials","true");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
